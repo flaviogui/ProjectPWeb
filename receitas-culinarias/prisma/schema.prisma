@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String @db.VarChar(255)
+  role Role @default(USER)
+  posts Recipe[]
+  comments Comment[]
+  point Point[]
+}
+
+model Recipe {
+  id Int @id @default(autoincrement())
+  createdDate DateTime @default(now())
+  title String @db.VarChar(255)
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+  stages Stage[]
+  ingredients Ingredient[]
+  comments Comment[]
+  category Category[]
+  point Point []
+}
+
+model Ingredient{
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  amount Int?
+  measure Measure?
+  recipe Recipe @relation(fields:[recipeId],references:[id])
+  recipeId Int
+}
+
+model Stage {
+  id Int @id @default(autoincrement())
+  recipe Recipe @relation(fields:[recipeId],references:[id])
+  recipeId Int
+  stage Int
+  description String @db.Text()
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  recipe Recipe @relation(fields:[recipeId],references:[id])
+  recipeId Int
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+  description String @db.Text
+}
+
+model Point {
+  id Int @id @default(autoincrement())
+  point Boolean
+  recipe Recipe @relation(fields:[recipeId],references:[id])
+  recipeId Int
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+}
+
+model Category{
+    id Int @id @default(autoincrement())
+    recipe Recipe @relation(fields:[recipeId],references:[id])
+    recipeId Int
+    category Categoryenum
+}
+
+enum Measure{
+  KG
+  G
+  MG
+  ML
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Categoryenum{
+ BREAKFAST                                                                                                                                       
+ LUCNH
+ DINNER
+ DRINKS
+ DOUGH
+ MEAT
+ DESSERT
+ SEAFOOD
+ SNACK
+ VEGETARIAN 
+ APPETIZER
+}
