@@ -2,7 +2,7 @@ import LoginCard from "../componentes/loginCard/loginCard"
 import styles from '../styles/login.module.css'
 import Input from '../componentes/input/input'
 import Button from "../componentes/button/button"
-
+import Link from 'next/link'
 
 export default function LoginPage(){
   return(
@@ -12,6 +12,8 @@ export default function LoginPage(){
       <Input type="email" placeholder="Seu e-mail"/>
       <Input type="password" placeholder="Sua senha"/>
       <Button>Entrar</Button>
+      <Link href="/cadastro">
+        Ainda não possui conta?</Link>
       </form>
       </LoginCard>
     </div>

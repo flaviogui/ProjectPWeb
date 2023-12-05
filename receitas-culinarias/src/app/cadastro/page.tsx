@@ -2,6 +2,7 @@ import LoginCard from "../componentes/loginCard/loginCard"
 import styles from "../styles/Cadastro.module.css"
 import Input from '../componentes/input/input'
 import Button from "../componentes/button/button"
+import Link from 'next/link'
 
 export default function CadastroPage(){
   return(
@@ -12,6 +13,8 @@ export default function CadastroPage(){
       <Input type="email" placeholder="Seu e-mail"/>
       <Input type="password" placeholder="Sua senha"/>
       <Button>Cadastrar</Button>
+      <Link href="/login">
+        Já possui conta?</Link>
       </form>
       </LoginCard>
     </div>
