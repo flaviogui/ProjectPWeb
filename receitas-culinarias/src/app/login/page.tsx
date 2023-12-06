@@ -13,7 +13,7 @@ export default function LoginPage(){
       <Input type="password" placeholder="Sua senha"/>
       <Button>Entrar</Button>
       <Link href="/cadastro">
-        Ainda não possui conta?</Link>
+        Ainda não possui conta? Faça seu cadastro</Link>
       </form>
       </LoginCard>
     </div>
