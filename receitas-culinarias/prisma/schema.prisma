@@ -13,7 +13,8 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
   email String @unique
-  name String @db.VarChar(255)
+  name String? @db.VarChar(255)
+  password String @db.VarChar(255)
   role Role @default(USER)
   posts Recipe[]
   comments Comment[]
@@ -23,6 +24,9 @@ model User {
 model Recipe {
   id Int @id @default(autoincrement())
   createdDate DateTime @default(now())
+  description String @db.Text()
+  url String @db.Text()
+  time DateTime @db.Time()
   title String @db.VarChar(255)
   author User @relation(fields: [authorId], references: [id])
   authorId Int
@@ -30,7 +34,7 @@ model Recipe {
   ingredients Ingredient[]
   comments Comment[]
   category Category[]
-  point Point []
+  point Point [] 
 }
 
 model Ingredient{
@@ -56,12 +60,12 @@ model Comment {
   recipeId Int
   author User @relation(fields: [authorId], references: [id])
   authorId Int
-  description String @db.Text
+  description String @db.Text()
 }
 
 model Point {
   id Int @id @default(autoincrement())
-  point Boolean
+  point Boolean?
   recipe Recipe @relation(fields:[recipeId],references:[id])
   recipeId Int
   author User @relation(fields: [authorId], references: [id])
@@ -70,9 +74,8 @@ model Point {
 
 model Category{
     id Int @id @default(autoincrement())
-    recipe Recipe @relation(fields:[recipeId],references:[id])
-    recipeId Int
-    category Categoryenum
+    posts Recipe[]
+    category String @db.VarChar(255)
 }
 
 enum Measure{
@@ -87,16 +90,4 @@ enum Role {
   ADMIN
 }
 
-enum Categoryenum{
- BREAKFAST                                                                                                                                       
- LUCNH
- DINNER
- DRINKS
- DOUGH
- MEAT
- DESSERT
- SEAFOOD
- SNACK
- VEGETARIAN 
- APPETIZER
-}
+
