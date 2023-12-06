@@ -1,5 +1,5 @@
 import LoginCard from "../componentes/loginCard/loginCard"
-import styles from '../styles/login.module.css'
+import styles from '../styles/Login.module.css'
 import Input from '../componentes/input/input'
 import Button from "../componentes/button/button"
 import Link from 'next/link'

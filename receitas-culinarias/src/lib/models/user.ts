@@ -21,12 +21,12 @@ enum Role{
 
 
 
-export const  createUser = async (user:User) => {
+export const  createUser = async (name:string,email:string,password:string) => {
     await prisma.user.create({
         data:{
-            name:user.name != undefined ? user.name : null,
-            email:user.email,
-            password:user.password
+            name:name ,
+            email:email,
+            password:password
         }
     })
 }
