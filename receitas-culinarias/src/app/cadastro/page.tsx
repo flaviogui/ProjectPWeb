@@ -14,7 +14,7 @@ export default function CadastroPage(){
       <Input type="password" placeholder="Sua senha"/>
       <Button>Cadastrar</Button>
       <Link href="/login">
-        Já possui conta?</Link>
+        Já possui conta? Entre aqui</Link>
       </form>
       </LoginCard>
     </div>
