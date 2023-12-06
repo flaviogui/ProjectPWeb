@@ -35,3 +35,14 @@ export const getUsers = async () => {
     const users = await prisma.user.findMany();
     return users
 }
+
+export const getUserForId = async (id:number) => {
+    const user = await prisma.user.findUnique(
+        {
+            where:{
+                id:id
+            }
+        }
+    );
+    return user
+}
