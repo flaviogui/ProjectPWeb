@@ -35,7 +35,7 @@
     border: 0;
     background-color: #e7e7e7;
     border-radius:4px;
-    color: rgb(255, 115, 0);
+    color:black;
 }
 
 .form {
@@ -49,8 +49,6 @@
     border-radius: 4px; 
     text-decoration: none; 
     transition: background-color 0.3s ease; 
-  
-    
   }
 
   
