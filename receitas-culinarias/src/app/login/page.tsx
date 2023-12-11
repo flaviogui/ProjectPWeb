@@ -3,9 +3,12 @@ import styles from '../styles/Login.module.css'
 import Input from '../componentes/input/input'
 import Button from "../componentes/button/button"
 import Link from 'next/link'
+import Header from "../componentes/header/header2"
 
 export default function LoginPage(){
   return(
+    <div>
+      <Header/>
     <div className={styles.background}>
       <LoginCard title = "ENTRE EM SUA CONTA">
       <form className={styles.form}>
@@ -16,6 +19,7 @@ export default function LoginPage(){
         Ainda não possui conta? Faça seu cadastro</Link>
       </form>
       </LoginCard>
+    </div>
     </div>
   )
 }
