@@ -3,9 +3,12 @@ import styles from "../styles/Cadastro.module.css"
 import Input from '../componentes/input/input'
 import Button from "../componentes/button/button"
 import Link from 'next/link'
+import Heard from "../componentes/header/header2"
 
 export default function CadastroPage(){
   return(
+    <div>
+      <Heard/>
     <div className={styles.background}>
       <LoginCard title = "CRIE SUA CONTA">
       <form className={styles.form}>
@@ -17,6 +20,7 @@ export default function CadastroPage(){
         Já possui conta? Entre aqui</Link>
       </form>
       </LoginCard>
+    </div>
     </div>
   )
 }
