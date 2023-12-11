@@ -8,7 +8,7 @@ export async function GET(resquest:NextRequest) {
     user.password ="********"
     return user
   })
-  return NextResponse.json({ message: 'hello',data:users},{status:200})
+  return NextResponse.json({ message: 'succuess',data:users},{status:200})
 }
 
 export async function POST(resquest:NextRequest) {

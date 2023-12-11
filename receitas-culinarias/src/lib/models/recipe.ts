@@ -21,17 +21,18 @@ export interface Recipe{
 }
 
 
-export const  createRecipe = async (recipe:Recipe) => {
+export const  createRecipe = async (title:string,description:string,url:string,authorId:number,time:string) => {
     await prisma.recipe.create({
         data:{
-            title:recipe.title,
-            description:recipe.description,
-            url:recipe.url,
-            authorId:recipe.authorId,
-            time:recipe.time,
+            title:title,
+            description:description,
+            url:url,
+            authorId:authorId,
+            time:time,
         }
     })
 }
+
 
 export const getRecipes = async () => {
     const recipes = await prisma.recipe.findMany();
