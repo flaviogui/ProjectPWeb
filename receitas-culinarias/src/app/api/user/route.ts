@@ -11,16 +11,13 @@ export async function GET(resquest:NextRequest) {
   return NextResponse.json({ message: 'succuess',data:users},{status:200})
 }
 
-export async function POST(resquest:NextRequest) {
-  const user = {
-    name:resquest.nextUrl.searchParams.get('name') ?? "",
-    email:resquest.nextUrl.searchParams.get('email') ?? "",
-    password:resquest.nextUrl.searchParams.get('password') ?? "",
-}
+export async function POST(req:Request) {
+
+  const data = await req.json()
   try {
-    createUser(user.name,user.email,user.password)
+    createUser(data.name,data.email,data.password)
     return NextResponse.json({ message: 'success'},{status:200})
   } catch (error) {
-    return NextResponse.json({ message: 'erro'},{status:200})
+    return NextResponse.json({ message:error},{status:200})
   }
 }

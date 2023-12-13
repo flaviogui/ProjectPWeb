@@ -3,32 +3,13 @@ import {createRecipe,getRecipes} from "../../../lib/models/recipe"
 
 
  
-export async function GET(resquest:NextRequest) {
+export async function GET(req:Request) {
     const recipes = await getRecipes()
     return NextResponse.json({ message: 'success',data:recipes},{status:200})
 }
 
-export async function POST(resquest:NextRequest) {
-    const recipe ={
-        authorId:parseInt(resquest.nextUrl.searchParams.get('authorId') ?? 'underfined'),
-        title:resquest.nextUrl.searchParams.get('title') ?? 'underfined',
-        description:resquest.nextUrl.searchParams.get('description') ?? 'underfined',
-        url:resquest.nextUrl.searchParams.get('url') ?? 'underfined',
-        time:resquest.nextUrl.searchParams.get('time') ?? 'underfined',
-        igredient: () =>{
-            
-        }
-    }
-    try {
-    createRecipe(
-        recipe.title,
-        recipe.description,
-        recipe.url,
-        recipe.authorId,
-        recipe.time
-        )
+export async function POST(req:Request) {
+    const data  = await req.json()
+    createRecipe(data)
     return NextResponse.json({ message: 'success'},{status:200})
-    } catch (error) {
-    return NextResponse.json({ message: 'erro'},{status:200})
-    }
 }
