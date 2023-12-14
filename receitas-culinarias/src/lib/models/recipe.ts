@@ -3,8 +3,6 @@ import { Point } from "./point";
 import { Stage } from "./stage";
 import { Igredient } from "./igredient";
 import { Comment } from "./comment";
-import { title } from "process";
-import { create } from "domain";
 
 export interface Recipe{
     id:number

@@ -1,0 +1,19 @@
+.div{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    align-items:center;
+    background-color: aliceblue;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000; 
+    margin-right: 1rem;
+
+}
