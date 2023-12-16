@@ -46,3 +46,18 @@
 .ol > * {
     margin-bottom: 10px;
 }
+
+.categoryLabel {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #efe9ed;
+  }
+.categorySelect {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    color: #000000;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+  }
