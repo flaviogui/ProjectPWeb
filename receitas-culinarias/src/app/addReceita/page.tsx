@@ -1,10 +1,10 @@
-// pages/index.tsx
 import AdicionarReceita from '../componentes/recipeForm/recipeForm'
-import RecipeForm from '../componentes/recipeForm/recipeForm'
+import Heard from '../componentes/header/header2'
 export default function AddReceita(){
   return (
     <div>
-      <AdicionarReceita />
+      <Heard/>
+      <AdicionarReceita/>
     </div>
   )
 }

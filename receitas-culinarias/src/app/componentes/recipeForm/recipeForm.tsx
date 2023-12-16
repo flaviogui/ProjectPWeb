@@ -1,5 +1,6 @@
 import Input from '../input/input'
 import  Styles  from './recipe.module.css'
+import Button from "../button/button"
 
 export default function RecipeForm(){
     return(
@@ -27,11 +28,9 @@ export default function RecipeForm(){
         <form>
           <Input  type="text" placeholder="URL" />
         </form>
+        <Button>Salvar</Button>
 
             </ol>
         </div>
     )
 }
-
-
-
