@@ -12,13 +12,17 @@
 */
 .div {
     
-    margin: 50px auto; /* Adiciona margem superior e inferior e centraliza horizontalmente */
-    max-width: 600px; /* Define a largura máxima do contêiner */
-    padding: 20px; /* Adiciona algum preenchimento interno para espaçamento */
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
     background-color: aliceblue;
-    text-align: center; /* Centraliza o conteúdo */
-    display:flex;
+    text-align: center;
 }
+
 
 .textarea {
     width: 100%;
