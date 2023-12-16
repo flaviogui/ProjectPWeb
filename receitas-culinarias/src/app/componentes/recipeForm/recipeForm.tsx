@@ -3,34 +3,19 @@ import  Styles  from './recipe.module.css'
 import Button from "../button/button"
 
 export default function RecipeForm(){
-    return(
-        <div className={Styles.div}>
-            <ol>
+  return(
+<div className={Styles.div}>
+    <ol className={Styles.ol}>
         <h1 className={Styles.title}>ADICIONAR RECEITA</h1>
-        <form>
-          <Input type="name" placeholder="Nome da receita:" />
-        </form>
-        <form>
-          <Input  type="text" placeholder="Descrição" />
-        </form>
-        <form>
-          <Input  type="text" placeholder="Ingredientes" />
-        </form>
-        <form>
-          <Input  type="text" placeholder="Modo de Preparo" />
-        </form>
-        <form>
-          <Input  type="name" placeholder="Nome do autor" />
-        </form>
-        <form>
-          <Input  type="name" placeholder="Tempo de Preparo" />
-        </form>
-        <form>
-          <Input  type="text" placeholder="URL" />
-        </form>
+        <Input type="name" placeholder="Nome da receita:" />
+        <Input type="text" placeholder="Descrição" />
+        <textarea className={Styles.textarea} placeholder="Ingredientes"></textarea>
+        <textarea className={Styles.textarea} placeholder="Modo de Preparo"></textarea>
+        <Input type="name" placeholder="Nome do autor" />
+        <Input type="name" placeholder="Tempo de Preparo" />
+        <Input type="text" placeholder="URL" />
         <Button>Salvar</Button>
-
-            </ol>
-        </div>
-    )
+    </ol>
+</div>
+  );
 }

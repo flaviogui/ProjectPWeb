@@ -1,20 +1,44 @@
-.div{
-    margin-left: 30%;
-    margin-right: 30%;
+/*.div{
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 50px;
     justify-content: center;
     align-items: center;
     display:flex;
     align-items:center;
     background-color: aliceblue;
-    min-height: 100%;
+    
+}
+*/
+.div {
+    
+    margin: 50px auto; /* Adiciona margem superior e inferior e centraliza horizontalmente */
+    max-width: 600px; /* Define a largura máxima do contêiner */
+    padding: 20px; /* Adiciona algum preenchimento interno para espaçamento */
+    background-color: aliceblue;
+    text-align: center; /* Centraliza o conteúdo */
+    display:flex;
 }
 
+.textarea {
+    width: 100%;
+    height: 150px; /* Ajuste a altura conforme necessário */
+    margin-bottom: 10px; /* Adiciona algum espaço entre os campos */
+    color:#000000;
+    background-color: #e7e7e7;
+    border-radius:10px;
+ 
+
+}
 .title{
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: #000000; 
+    color: #7b0269; 
     margin-right: 1rem;
 
+}
+
+.ol > * {
+    margin-bottom: 10px;
 }
