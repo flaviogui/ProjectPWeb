@@ -8,3 +8,14 @@ export default function AddReceita(){
     </div>
   )
 }
+
+
+//redericiona
+/*
+ useEffect(() => {
+    if (sessionStatus !== "authenticated") {
+      router.replace("/");
+    }
+  }, [sessionStatus, router]);
+
+*/
