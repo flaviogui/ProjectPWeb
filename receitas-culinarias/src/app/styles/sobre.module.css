@@ -1,0 +1,41 @@
+/* Sobre.css */
+
+
+.div {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+ 
+.h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+ 
+.p {
+    color: #666;
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+
+.pa {
+    color: #007bff; /* Cor padrão do link azul */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Alterando a cor do link ao passar o mouse sobre ele */
+  .pa:hover {
+    color: #0056b3; /* Cor alterada ao passar o mouse */
+  }
+
+  .h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  

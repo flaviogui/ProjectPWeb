@@ -10,7 +10,7 @@ export default function RecipeForm(){
           <Input type="name" placeholder="Nome da receita:" />
           <Input type="name" placeholder="Nome do autor" />
           <Input type="name" placeholder="Tempo de Preparo" />
-          <Input type="text" placeholder="URL" />
+          <Input type="text" placeholder="URL"/>
           <textarea className={Styles.textarea} placeholder="Ingredientes"></textarea>
           <textarea className={Styles.textarea} placeholder="Modo de Preparo"></textarea>
           <textarea className={Styles.textarea} placeholder="Descrição"></textarea>
