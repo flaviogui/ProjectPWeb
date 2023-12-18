@@ -6,9 +6,12 @@ import Button from "../componentes/button/button"
 import Link from 'next/link'
 import Header from "../componentes/header/header2"
 import { useRouter } from "next/navigation"
+import { getUserForEmail } from "@/lib/models/user"
+import { logIn } from "./login"
 
 export default function LoginPage(){
-  const router = useRouter()
+  let id:number;
+  let name:string;
   return(
     <div>
       <Header/>
@@ -16,31 +19,17 @@ export default function LoginPage(){
       <LoginCard title = "ENTRE EM SUA CONTA">
       <form className={styles.form}>
       <Input type="email" id="email"  placeholder="Seu e-mail"/>
-      <Input type="password" id="pass" placeholder="Sua senha"/>
-      <Button onClick={ async ()  =>{
-        let email = (document.getElementById("email") as HTMLInputElement)?.value
-        let pass = (document.getElementById("pass") as HTMLInputElement)?.value
-        window.alert("0:init")
-        const res = await fetch(
-          "/api/user/login",
-          {method:"POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body:JSON.stringify({email:email,pass:pass})
-      }
-        )
-      window.alert("0:fetch")
-      window.alert(res.ok)
-      const data = await res.json()
-      window.alert("sus")
-      if(data?.message == 'success'){
-        console.log("success")
-        router.replace(`/addReceita?userId=${data.id}&userName=${data.name}`)
-      }
-      }
-      }>Entrar</Button>
+      <Input type="password" id="password" placeholder="Sua senha"/>
+      <Button onClick={
+        async () => {
+          try{
+            let user = await logIn()
+            useRouter().replace(`/addReceita/?authorId=${user.data.id}&name=${user.data.name}`)
+          }catch(error){
+            console.log(error)
+          }
+        }
+        }>Entrar</Button>
       <Link href="/cadastro">
         Ainda não possui conta? Faça seu cadastro</Link>
       </form>
