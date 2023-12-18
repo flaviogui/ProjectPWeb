@@ -3,7 +3,7 @@ import {getUserForId} from "../../../../lib/models/user"
 
 
  
-export async function GET(resquest:Response,context:any) {
+export async function GET(resquest:Request,context:any) {
   const id = parseInt(context.params.id)
   const user = await getUserForId(id)
   if(user != null){

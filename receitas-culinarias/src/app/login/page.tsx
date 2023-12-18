@@ -24,7 +24,6 @@ export default function LoginPage(){
         async () => {
           try{
             let user = await logIn()
-            useRouter().replace(`/addReceita/?authorId=${user.data.id}&name=${user.data.name}`)
           }catch(error){
             console.log(error)
           }

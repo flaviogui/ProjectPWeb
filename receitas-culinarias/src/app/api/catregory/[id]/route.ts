@@ -3,7 +3,7 @@ import {getRecipesForCategoryForId} from "../../../../lib/models/recipe"
 
 
  
-export async function GET(resquest:Response,context:any) {
+export async function GET(resquest:Request,context:any) {
     const id = parseInt(context.params.id)
     const RecipesForId = (await getRecipesForCategoryForId(id))
     return NextResponse.json({ message: 'succuess',data:RecipesForId},{status:200})

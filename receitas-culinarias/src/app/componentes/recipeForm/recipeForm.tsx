@@ -2,12 +2,8 @@
 import Input from '../input/input'
 import  Styles  from './recipe.module.css'
 import Button from "../button/button"
-import { useRouter } from 'next/navigation'
 
 export default function RecipeForm(props:any){
-  if(props.id == -1){
-    useRouter().replace("/")
-  }
   return(
 <div className={Styles.div}>
     <ol className={Styles.ol}>
