@@ -1,7 +1,5 @@
-import { prisma } from "../prisma";
-import { Comment } from "./comment";
+import {prisma} from "../prisma"
 import { Recipe } from "./recipe";
-import { Point } from "./point";
 
 export interface User{
     id:number
@@ -9,8 +7,6 @@ export interface User{
     email:string
     password:string
     recipes:Recipe[]
-    comments:Comment[]
-    points:Point[]
     role:Role
 }
 
@@ -20,13 +16,12 @@ enum Role{
 }
 
 
-
 export const  createUser = async (name:string,email:string,password:string) => {
     await prisma.user.create({
         data:{
             name:name ,
             email:email,
-            password:password
+            password:password,
         }
     })
 }
@@ -41,6 +36,18 @@ export const getUserForId = async (id:number) => {
         {
             where:{
                 id:id
+            }
+        }
+    );
+    return user
+}
+
+
+export const getUserForEmail = async (email:string) => {
+    const user = await prisma.user.findUnique(
+        {
+            where:{
+                email:email
             }
         }
     );

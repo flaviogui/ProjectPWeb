@@ -1,8 +1,5 @@
 import { prisma } from "../prisma";
-import { Point } from "./point";
-import { Stage } from "./stage";
-import { Igredient } from "./igredient";
-import { Comment } from "./comment";
+
 
 export interface Recipe{
     id:number
@@ -11,9 +8,6 @@ export interface Recipe{
     url:string
     creatDate:string
     time:string
-    points:Point[]
-    stages:Stage[]
-    igredients:Igredient[]
     category:string[]
     comments:Comment[]
     authorId:number
@@ -29,8 +23,14 @@ export const  createRecipe = async (data:any) => {
             url:data.url,
             authorId:data.authorId,
             time:data.time,
-            stages:{createMany:data.stages},
-            ingredients:{createMany:data.igredients}
+            stages:data.stages,
+            ingredients:data.igredients,
+            category:{connectOrCreate:[
+                {
+                    create:{category:data.category},
+                    where:{category:data.category}
+                }
+            ]}
         }
     })
 }
@@ -78,10 +78,6 @@ export const getRecipeForId = async (id:number) => {
             where:{
                 id:id 
             },
-            include:{
-                stages:true,
-                ingredients:true,
-            }
         }
     );
     return recipe

@@ -10,6 +10,10 @@ export async function GET(req:Request) {
 
 export async function POST(req:Request) {
     const data  = await req.json()
-    createRecipe(data)
-    return NextResponse.json({ message: 'success'},{status:200})
+    try{
+        createRecipe(data)
+        return NextResponse.json({ message: 'success'},{status:200})
+    }catch(error){
+        return NextResponse.json({ message: 'error'},{status:200})
+    }
 }
